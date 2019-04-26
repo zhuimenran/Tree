@@ -1,5 +1,7 @@
 package com.txb.tree.binary.util;
 
+import java.util.Stack;
+
 /**
  * 二分搜素树实现
  * @author 13125
@@ -95,7 +97,23 @@ public class BST<E extends Comparable<E>> {
 				return contains(node.right,e);
 			}
 	}
-	
+	//非递归的前序遍历
+	public void preOrderNR() {
+		Stack<Node> stack = new Stack<>();
+		stack.push(root);
+		
+		while(!stack.isEmpty()) {
+			Node cur = stack.pop();
+			System.out.println(cur.e);
+			if(cur.right != null) {
+				stack.push(cur.right);
+			}
+			if(cur.left != null) {
+				stack.push(cur.left);
+			}
+		}
+		
+	}
 	//前序遍历
 	public void preOrder() {
 		preOrder(root);

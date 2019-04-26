@@ -14,11 +14,11 @@ public class Main {
 		
 		bst.preOrder();
 		System.out.println("\n");
-		bst.inOrder();
-		
+		//bst.inOrder();
+		bst.preOrderNR();
 		
 		System.out.println(bst);
-		bst.postOrder();
+		//bst.postOrder();
 	}
 
 }
