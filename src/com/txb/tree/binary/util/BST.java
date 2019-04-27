@@ -156,6 +156,49 @@ public class BST<E extends Comparable<E>> {
 			
 			return node;
 		}
+		
+		//删除节点
+		public void remove(E e) {
+			root = remove(root, e);
+		}
+		
+		//返回删除节点后的根
+		private Node remove(Node node,E e) {
+			if(node == null) {
+				return null;
+			}
+			
+			if(e.compareTo(node.e)<0) {
+				node.left = remove(node.left, e);
+				return node;
+			}else if(e.compareTo(node.e)>0) {
+				node.right = remove(node.right, e);
+				return node;
+			}else {//删除node
+				
+				//如果node.left =null
+				if(node.left == null) {
+					Node rightNode = node.right;
+					node.right = null;
+					size--;
+					return rightNode;
+				}
+				if(node.right == null) {
+					Node leftNode = node.left;
+					node.left = null;
+					size--;
+					return leftNode;
+				}
+					
+				//待删除节点的左右节点都不为空
+				//找到比待删节点小的最大节点
+				Node successor = mininum(node.right); 
+				successor.right = removeMin(node.right);
+				successor.left = node.left;
+				node.left = node.right =  null;
+				return successor;
+			}
+		}
 	
 	//在树中查询元素
 	public boolean contains(E e) {
