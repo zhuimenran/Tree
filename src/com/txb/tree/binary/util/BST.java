@@ -1,5 +1,7 @@
 package com.txb.tree.binary.util;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -97,6 +99,8 @@ public class BST<E extends Comparable<E>> {
 				return contains(node.right,e);
 			}
 	}
+	
+	
 	//非递归的前序遍历
 	public void preOrderNR() {
 		Stack<Node> stack = new Stack<>();
@@ -113,6 +117,23 @@ public class BST<E extends Comparable<E>> {
 			}
 		}
 		
+	}
+	
+	//非递归实现层序遍历
+	public void levelOrder() {
+		Queue<Node> queue = new LinkedList<>();
+		queue.add(root);
+		
+		while(!queue.isEmpty()) {
+			Node cur = queue.remove();
+			System.out.println(cur.e);
+			if(cur.left != null) {
+				queue.add(cur.left);
+			}
+			if(cur.right != null) {
+				queue.add(cur.right);
+			}
+		}
 	}
 	//前序遍历
 	public void preOrder() {
