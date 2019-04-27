@@ -79,6 +79,84 @@ public class BST<E extends Comparable<E>> {
 		return node;
 	}
 	
+	//寻找最小节点
+	public E mininum() {
+		if(size == 0) {
+			throw new IllegalArgumentException("为空");
+		}
+		return mininum(root).e;
+	}
+	
+	//寻找最小节点所在节点的位置，递归算法
+	private Node mininum(Node node) {
+		if(node.left == null) {
+			return node;
+		}
+		
+		return mininum(node.left);
+	}
+	
+	//寻找最大节点
+		public E maxinum() {
+			if(size == 0) {
+				throw new IllegalArgumentException("为空");
+			}
+			return maxinum(root).e;
+		}
+		
+		//寻找最da节点所在节点的位置，递归算法
+		private Node maxinum(Node node) {
+			if(node.right == null) {
+				return node;
+			}
+			
+			return maxinum(node.right);
+		}
+	
+	//删除最小节点
+	public E removeMin() {
+		E ret = mininum();
+		root = removeMin(root);//不要忘了
+		return ret;
+	}
+	
+	//删除以node为更的最小节点
+	//返回删除节点后的新的二分搜素树的根
+	private Node removeMin(Node node) {
+		if(node.left == null) {
+			Node rightNode = node.right;
+			node.right = null;
+			size--;
+			return rightNode;
+		}
+		//说明node还有左子树
+		node.left = removeMin(node.left);
+		
+		return node;
+	}
+	
+	//删除最大节点
+		public E removeMax() {
+			E ret = maxinum();
+			root = removeMax(root);//不要忘了
+			return ret;
+		}
+		
+		//删除以node为更的最大节点
+		//返回删除节点后的新的二分搜素树的根
+		private Node removeMax(Node node) {
+			if(node.right == null) {
+				Node leftNode = node.left;
+				node.left = null;
+				size--;
+				return leftNode;
+			}
+			//说明node还有右子树
+			node.right = removeMin(node.right);
+			
+			return node;
+		}
+	
 	//在树中查询元素
 	public boolean contains(E e) {
 		
