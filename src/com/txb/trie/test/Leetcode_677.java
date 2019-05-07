@@ -1,7 +1,21 @@
 package com.txb.trie.test;
 
 import java.util.TreeMap;
+/**
+ * 使用insert和sum方法实现MapSum类。
 
+对于该方法insert，您将获得一对（字符串，整数）。字符串表示键，整数表示值。如果密钥已存在，则原始键值对将被覆盖到新键值对。
+
+对于该方法sum，您将获得一个表示前缀的字符串，并且您需要返回其键以前缀开头的所有对的值的总和。
+
+例1：
+输入：insert（“apple”，3），输出：Null
+输入：sum（“ap”），输出：3
+输入：insert（“app”，2），Output：Null
+输入：sum（“ap”），输出：5
+ * @author 13125
+ *
+ */
 public class Leetcode_677 {
     public static class MapSum {
 
