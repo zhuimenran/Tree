@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
- * 二分搜素树实现
+ * 二分搜素树实现，不是完全二叉树，不是平衡二叉树
  * @author 13125
  *
  */
