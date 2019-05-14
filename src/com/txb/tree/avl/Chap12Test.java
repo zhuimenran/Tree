@@ -5,6 +5,7 @@ package com.txb.tree.avl;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.txb.tree.rbt.RBTree;
 import com.txb.trie.test.FileOperation;
 
 public class Chap12Test {
@@ -12,7 +13,7 @@ public class Chap12Test {
     public static void main(String[] args) {
         testAVL();
         //testBST();
-        //testRBTree();
+        testRBTree();
         //testHashTable();
 //        testHashTable_0();
     }
@@ -71,7 +72,7 @@ public class Chap12Test {
     }
 
 */
-    /*
+    
     private static void testRBTree() {
         System.out.println("pride-and-prejudice: ");
         ArrayList<String> words = new ArrayList<>();
@@ -93,7 +94,7 @@ public class Chap12Test {
 
         System.out.println("Frequency of prejudice : RBTree time  " + ((System.currentTimeMillis() - startTime) / 1000.0));
     }
-*/
+
     /*
     private static void testHashTable() {
         System.out.println("pride-and-prejudice: ");
